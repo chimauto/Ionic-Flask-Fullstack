@@ -1,0 +1,96 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>
+      Order your food
+    </ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+<img src = "https://scontent.fbkk22-6.fna.fbcdn.net/v/t1.15752-9/131317436_1387211441617903_621889470715785128_n.jpg?_nc_cat=104&ccb=2&_nc_sid=ae9488&_nc_eui2=AeHeRBZp5zNjoKyThlt4ayqaYfBNWIsqWCth8E1YiypYK90kI1pKNIw8PknJMX3y9_ejaPLVWmkS5oIl52dyt1e7&_nc_ohc=PIiWVJO7rKoAX8s873N&_nc_ht=scontent.fbkk22-6.fna&oh=0a71c1754165cdbbf346c8ae3311ae15&oe=5FF84B36">
+  <ion-item>
+  <ion-label>Number</ion-label>
+    <ion-input [(ngModel)]="order" placeholder="Enter number"></ion-input>
+  </ion-item>
+  <button ion-button (click)="showFood(order)" full>Search</button>
+   <div *ngIf='food$ | async as fod'>
+    <ion-card >
+      <ion-card-header>
+        <ion-card-title>Menu</ion-card-title>
+      </ion-card-header>
+      <ion-card-content>
+        Number:{{fod.data[0].Number}} <br>
+        Recipe:{{fod.data[0].Recipe}} <br>
+        Price:{{fod.data[0]['Price']}} Baht <br>
+        CookingTime:{{fod.data[0]['CookingTime']}} Mins <br>
+        Calories:{{fod.data[0]['Calories']}} kcal <br>
+      </ion-card-content>
+    </ion-card>
+   </div>
+  
+  <ion-item>
+  <ion-label>Add User</ion-label>
+    <ion-input [(ngModel)]="data2" placeholder="Enter user"></ion-input>
+  </ion-item>
+
+  <ion-item>
+  <ion-label>Add Recipe</ion-label>
+    <ion-input [(ngModel)]="data3" placeholder="Enter recipe"></ion-input>
+  </ion-item>
+
+  <ion-item>
+  <ion-label>Add Price</ion-label>
+    <ion-input [(ngModel)]=data4 placeholder="Enter price"></ion-input>
+  </ion-item>
+
+  <ion-item>
+  <ion-label>Add Time</ion-label>
+    <ion-input [(ngModel)]="data5" placeholder="Enter time"></ion-input>
+  </ion-item>
+
+  <ion-item>
+  <ion-label>Add KCal</ion-label>
+    <ion-input [(ngModel)]="data6" placeholder="Enter Kcal"></ion-input>
+  </ion-item>
+  <button ion-button (click)="save()" full>Add to Cart</button>
+  <button ion-button (click)="getMenu()" full>View Cart</button>
+    <div *ngIf='salsa | async as sas'>
+    <ion-card>
+      <ion-card-header>
+        <ion-card-title>Your Cart</ion-card-title>
+      </ion-card-header>
+      <ion-card-content>
+      <p>User: {{sas.salsa[0]['User']}}</p>
+      <p>Recipe: {{sas.salsa[0]['Recipe']}}</p>
+      <p>Price: {{sas.salsa[0]['Price']}}</p>
+      <p>CookingTime: {{sas.salsa[0]['CookingTime']}}</p>
+      <p>Calories: {{sas.salsa[0]['Calories']}}</p>
+    </ion-card-content>
+    </ion-card>
+   </div>
+   <button ion-button (click)="getMax()" full>View Max Calories</button>
+    <div *ngIf='mamba | async as mam'>
+    <ion-card >
+      <ion-card-header>
+        <ion-card-title>Your Max Calories</ion-card-title>
+      </ion-card-header>
+      <ion-card-content>
+      <p>MaxCalories: {{mam.mamba[0]['Calories']}} Kcal</p>
+    </ion-card-content>
+    </ion-card>
+   </div>
+   <button ion-button (click)="showTotal()" full>View Total</button>
+    <div *ngIf='unda | async as und'>
+    <ion-card >
+      <ion-card-header>
+        <ion-card-title>Total Amount</ion-card-title>
+      </ion-card-header>
+      <ion-card-content>
+      <p>Recipe: {{und.unda[0]['_id']}} </p>
+      <p>Amount: {{und.unda[0]['total']}} </p>
+    </ion-card-content>
+    </ion-card>
+    </div>
+  
+</ion-content>
+

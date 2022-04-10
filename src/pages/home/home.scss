@@ -1,0 +1,32 @@
+page-home {
+    h3{
+        color:#e63946;
+    }
+
+    p{
+        color: #457b9d !important;
+    }
+
+    ion-item{
+        background: #f1faee !important;
+    }
+
+    ion-content{
+        background:#a8dadc !important;
+    }
+
+    ion-title{
+        background: #a8dadc;
+        color: #1d3557;
+    }
+
+    ion-title h1{
+        color: #1d3557; 
+        font-size: 2rem;
+        font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    }
+
+    ion-card{
+        border-radius: 15px !important;
+    }
+}
